@@ -3,6 +3,29 @@ const Country = require('../models/country.model');
 const State = require('../models/state.model');
 const City = require('../models/city.model');
 const User = require('../models/user.model');
+const Comment = require('../models/comment.model');
+const EmailSetting = require('../models/email.setting.model');
+const Event = require('../models/event.model');
+const EventUser = require('../models/event.user.model');
+const FcmSetting = require('../models/fcm.setting.model');
+const Follower = require('../models/follower.model');
+const Following = require('../models/following.model');
+const LiveConsultation = require('../models/live.consultation.model');
+const Notification = require('../models/notification.model');
+const Offer = require('../models/offer.model');
+const Page = require('../models/page.model');
+const PaymentSetting  = require('../models/payment.setting.model');
+const Plan  = require('../models/plan.model');
+const Review = require('../models/review.model');
+const Role = require('../models/role.model');
+const Service = require('../models/service.model');
+const Setting = require('../models/setting.model');
+const Support = require('../models/support.model');
+const Transaction = require('../models/transaction.model');
+const UserPayment = require('../models/user.payment.model');
+const UserSetting = require('../models/user.setting.model');
+const Wallet = require('../models/wallet.model');
+
 const { apiError, apiSuccess, dbErrorLog } = require('../utils/helper');
 const pick = require('../utils/pick');
 const ObjectId = mongoose.Types;
@@ -19,6 +42,75 @@ const currentModel = (model) => {
     case 'City':
       _model = City;
       break;
+    case 'Comment':
+      _model = Comment;
+      break;
+    case 'EmailSetting':
+      _model = EmailSetting;
+      break;
+    case 'User':
+      _model = User;
+      break;
+    case 'Event':
+      _model = Event;
+      break;
+    case 'EventUser':
+      _model = EventUser;
+      break;
+    case 'FcmSetting':
+      _model = FcmSetting;
+      break;
+    case 'Follower':
+      _model = Follower;
+      break;
+    case 'Following':
+      _model = Following;
+      break;
+    case 'LiveConsultation' :
+      _model = LiveConsultation;
+      break;
+    case 'Notification' :
+      _model = Notification;
+      break;
+    case 'Offer' :
+      _model = Offer;
+      break;
+    case 'Page' :
+      _model = Page;
+      break;
+    case 'PaymentSetting' :
+      _model = PaymentSetting;
+      break;
+    case 'Plan' :
+      _model = Plan;
+      break;
+    case 'Review' :
+      _model = Review;
+      break;
+    case 'Role' :
+      _model = Role;
+      break;
+    case 'Service' :
+      _model = Service;
+      break;
+    case 'Setting' :
+      _model = Setting;
+      break;
+    case 'Support' :
+      _model = Support;
+      break;
+    case 'Transaction' :
+      _model = Transaction;
+      break;
+    case 'UserPayment' :
+      _model = UserPayment;
+      break;
+    case 'UserSetting' :
+      _model = UserSetting;
+      break;
+    case 'Wallet' :
+    _model = Wallet;
+    break;
     default:
       _model = User;
   }
