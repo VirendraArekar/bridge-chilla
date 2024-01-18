@@ -54,5 +54,5 @@ module.exports = {
   getEvent,
   updateEvent,
   deleteEvent,
-  deleteEvents
+  deleteEvents,
 };
