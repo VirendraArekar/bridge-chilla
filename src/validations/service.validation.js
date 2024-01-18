@@ -4,14 +4,14 @@ const { objectId } = require('./custom.validation');
 const createService = {
   body: Joi.object().keys({
     name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    status: Joi.boolean().required(),
   }),
 };
 
 const getServices = {
   query: Joi.object().keys({
     name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    status: Joi.boolean(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -31,7 +31,7 @@ const updateService = {
   body: Joi.object()
     .keys({
       name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      status: Joi.boolean(),
     })
     .min(1),
 };

@@ -3,7 +3,7 @@ const { toJSON, paginate } = require('./plugins');
 
 const userSettingSchema = mongoose.Schema(
   {
-    userId: {
+    user: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'User',
       required: true,
@@ -28,7 +28,7 @@ const userSettingSchema = mongoose.Schema(
       default: null,
       required: true,
     },
-    blockList: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'userId' }],
+    blockList: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'user' }],
   },
   {
     timestamps: true,

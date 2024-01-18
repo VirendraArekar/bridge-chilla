@@ -5,11 +5,7 @@ const serviceSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
-    },
-    type: {
-      type: String,
-      enum: ['Consultant', 'Dermatologist', 'Make Up Artist', 'Mental Health Care'],
+      // enum: ['Consultant', 'Dermatologist', 'Make Up Artist', 'Mental Health Care'],
       required: true,
     },
     status: {

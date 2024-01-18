@@ -3,6 +3,11 @@ const { toJSON, paginate } = require('./plugins');
 
 const eventSchema = mongoose.Schema(
   {
+    user: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'User',
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -20,7 +25,7 @@ const eventSchema = mongoose.Schema(
       required: true,
     },
     eventStartTime: {
-      type: String,
+      type: Date,
       default: null,
       required: true,
     },

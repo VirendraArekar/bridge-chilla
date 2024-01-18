@@ -30,7 +30,6 @@ const getRoles = catchAsync(async (req, res) => {
 
 const getRole = catchAsync(async (req, res) => {
   const role = await Role.findById(req.params.roleId);
-  console.log(role , 'ROLE ---------------')
   if (role) {
     apiSuccess(res, role, 'Role retrieve successfully');
   } else {

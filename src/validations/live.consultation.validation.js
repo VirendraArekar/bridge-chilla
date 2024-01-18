@@ -3,15 +3,19 @@ const { objectId } = require('./custom.validation');
 
 const createLiveConsultation = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    user: Joi.string().required().custom(objectId),
+    customers: Joi.array(),
+    joiningTime: Joi.string().required(),
+    leaveTime: Joi.string(),
   }),
 };
 
 const getLiveConsultations = {
   query: Joi.object().keys({
-    name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    user: Joi.string().custom(objectId),
+    customers: Joi.array(),
+    joiningTime: Joi.string(),
+    leaveTime: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,8 +34,10 @@ const updateLiveConsultation = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      user: Joi.string().custom(objectId),
+      customers: Joi.array(),
+      joiningTime: Joi.string(),
+      leaveTime: Joi.string(),
     })
     .min(1),
 };

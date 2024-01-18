@@ -3,7 +3,7 @@ const { toJSON, paginate } = require('./plugins');
 
 const notificationSchema = mongoose.Schema(
   {
-    userId: {
+    user: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'User',
       required: true,

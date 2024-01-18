@@ -3,15 +3,25 @@ const { objectId } = require('./custom.validation');
 
 const createEvent = {
   body: Joi.object().keys({
+    user: Joi.string().required().custom(objectId),
     name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    title: Joi.string().required(),
+    eventDateTime: Joi.string().required(),
+    eventStartTime: Joi.string().required(),
+    eventEndTime: Joi.string(),
+    description: Joi.string().required(),
   }),
 };
 
 const getEvents = {
   query: Joi.object().keys({
+    user: Joi.string().custom(objectId),
     name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    title: Joi.string(),
+    eventDateTime: Joi.string(),
+    eventStartTime: Joi.string(),
+    eventEndTime: Joi.string(),
+    description: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,8 +40,13 @@ const updateEvent = {
   }),
   body: Joi.object()
     .keys({
+      user: Joi.string().custom(objectId),
       name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      title: Joi.string(),
+      eventDateTime: Joi.string(),
+      eventStartTime: Joi.string(),
+      eventEndTime: Joi.string(),
+      description: Joi.string(),
     })
     .min(1),
 };

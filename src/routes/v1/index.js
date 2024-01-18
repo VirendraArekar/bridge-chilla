@@ -115,10 +115,10 @@ const defaultRoutes = [
     path: '/user/services',
     route: serviceRoute,
   },
-  {
-    path: '/user/settings',
-    route: settingRoute,
-  },
+  // {
+  //   path: '/user/settings',
+  //   route: settingRoute,
+  // },
   {
     path: '/user/supports',
     route: supportRoute,

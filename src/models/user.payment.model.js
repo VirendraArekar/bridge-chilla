@@ -3,7 +3,7 @@ const { toJSON, paginate } = require('./plugins');
 
 const userPaymentSchema = mongoose.Schema(
   {
-    userId: {
+    user: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'User',
       required: true,
@@ -16,11 +16,11 @@ const userPaymentSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
-    eventType: {
-      type: String,
-      enum: ['Event', 'Live', 'Call', 'Plan', 'Subscription'],
-      required: true,
-    },
+    // eventType: {
+    //   type: String,
+    //   enum: ['Event', 'Live', 'Call', 'Plan', 'Subscription'],
+    //   required: true,
+    // },
     transactionType: {
       type: String,
       enum: ['Wallet', 'Upi', 'Credit Card', 'Debit Card', 'Offline'],

@@ -28,7 +28,6 @@ const dbErrorLog = async (key, priority = 'Low', request, error) => {
 
   const log = new ErrorLog({
     key,
-    // userId : 111,
     priority,
     request : modifiedRequest,
     error,

@@ -3,15 +3,21 @@ const { objectId } = require('./custom.validation');
 
 const createTransaction = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    user: Joi.string().required().custom(objectId),
+    // payment: Joi.string().required().custom(objectId),
+    transactionId: Joi.number().required(),
+    amount: Joi.number().required(),
+    transactionType: Joi.string().required()
   }),
 };
 
 const getTransactions = {
   query: Joi.object().keys({
-    name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    user: Joi.string().custom(objectId),
+    // payment: Joi.string().custom(objectId),
+    transactionId: Joi.number(),
+    amount: Joi.number(),
+    transactionType: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,8 +36,11 @@ const updateTransaction = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      user: Joi.string().custom(objectId),
+      // payment: Joi.string().custom(objectId),
+      transactionId: Joi.number(),
+      amount: Joi.number(),
+      transactionType: Joi.string(),
     })
     .min(1),
 };

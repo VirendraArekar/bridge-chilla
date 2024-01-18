@@ -3,15 +3,19 @@ const { objectId } = require('./custom.validation');
 
 const createNotification = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    user: Joi.string().required().custom(objectId),
+    notification: Joi.string().required(),
+    priority: Joi.number().required(),
+    readIt:  Joi.boolean().required(),
   }),
 };
 
 const getNotifications = {
   query: Joi.object().keys({
-    name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    user: Joi.string().custom(objectId),
+    notification: Joi.string(),
+    priority: Joi.number(),
+    readIt:  Joi.boolean(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,8 +34,10 @@ const updateNotification = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      user: Joi.string().custom(objectId),
+      notification: Joi.string(),
+      priority: Joi.number(),
+      readIt:  Joi.boolean(),
     })
     .min(1),
 };
