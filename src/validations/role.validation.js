@@ -4,14 +4,16 @@ const { objectId } = require('./custom.validation');
 const createRole = {
   body: Joi.object().keys({
     name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    value: Joi.string().required(),
+    active: Joi.boolean().required(),
   }),
 };
 
 const getRoles = {
   query: Joi.object().keys({
     name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    value: Joi.string(),
+    active: Joi.boolean(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -31,7 +33,8 @@ const updateRole = {
   body: Joi.object()
     .keys({
       name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      value: Joi.string(),
+      active: Joi.boolean(),
     })
     .min(1),
 };

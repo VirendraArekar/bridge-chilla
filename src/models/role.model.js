@@ -8,8 +8,8 @@ const roleSchema = mongoose.Schema(
       required: true,
       index: true,
     },
-    status: {
-      type: Number,
+    value: {
+      type: String,
       required: true,
     },
     active: {
