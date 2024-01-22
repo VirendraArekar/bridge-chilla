@@ -3,15 +3,29 @@ const { objectId } = require('./custom.validation');
 
 const createPlan = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    plan: Joi.string().required(),
+    chat: Joi.boolean().required(),
+    audioCall: Joi.boolean().required(),
+    videoCall: Joi.boolean().required(),
+    liveSession: Joi.boolean().required(),
+    startDate: Joi.string().required(),
+    endDate: Joi.string().required(),
+    type: Joi.string().required(),
+    description: Joi.string(),
   }),
 };
 
 const getPlans = {
   query: Joi.object().keys({
-    name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    plan: Joi.string(),
+    chat: Joi.boolean(),
+    audioCall: Joi.boolean(),
+    videoCall: Joi.boolean(),
+    liveSession: Joi.boolean(),
+    startDate: Joi.string(),
+    endDate: Joi.string(),
+    type: Joi.string(),
+    description: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,15 +44,30 @@ const updatePlan = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      plan: Joi.string(),
+      chat: Joi.boolean(),
+      audioCall: Joi.boolean(),
+      videoCall: Joi.boolean(),
+      liveSession: Joi.boolean(),
+      startDate: Joi.string(),
+      endDate: Joi.string(),
+      type: Joi.string(),
+      description: Joi.string(),
     })
     .min(1),
 };
 
 const deletePlan = {
   params: Joi.object().keys({
-    planId: Joi.string().custom(objectId),
+    plan: Joi.string(),
+    chat: Joi.boolean(),
+    audioCall: Joi.boolean(),
+    videoCall: Joi.boolean(),
+    liveSession: Joi.boolean(),
+    startDate: Joi.string(),
+    endDate: Joi.string(),
+    type: Joi.string(),
+    description: Joi.string(),
   }),
 };
 

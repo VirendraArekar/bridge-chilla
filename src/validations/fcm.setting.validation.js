@@ -3,15 +3,15 @@ const { objectId } = require('./custom.validation');
 
 const createFcmSetting = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    serverKey: Joi.string().required(),
+    clientKey: Joi.string().required(),
   }),
 };
 
 const getFcmSettings = {
   query: Joi.object().keys({
-    name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    serverKey: Joi.string(),
+    clientKey: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,8 +30,8 @@ const updateFcmSetting = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      serverKey: Joi.string(),
+      clientKey: Joi.string(),
     })
     .min(1),
 };

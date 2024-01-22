@@ -3,15 +3,17 @@ const { objectId } = require('./custom.validation');
 
 const createPaymentSetting = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    clientKey: Joi.string().required(),
+    clientSecret: Joi.string().required(),
+    vendorEmail: Joi.string().required(),
   }),
 };
 
 const getPaymentSettings = {
   query: Joi.object().keys({
-    name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    clientKey: Joi.string(),
+    clientSecret: Joi.string(),
+    vendorEmail: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,8 +32,9 @@ const updatePaymentSetting = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      clientKey: Joi.string(),
+      clientSecret: Joi.string(),
+      vendorEmail: Joi.string(),
     })
     .min(1),
 };

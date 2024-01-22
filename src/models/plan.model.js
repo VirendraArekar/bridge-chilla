@@ -4,28 +4,52 @@ const { tokenTypes } = require('../config/tokens');
 
 const planSchema = mongoose.Schema(
   {
-    token: {
+    plan: {
       type: String,
       required: true,
-      index: true,
     },
-    user: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: 'User',
+    chat: {
+      type: Boolean,
+      default : false,
+      required: true,
+    },
+    audioCall: {
+      type: Boolean,
+      default : false,
+      required: true,
+    },
+    videoCall: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
+    liveSession: {
+      type: Boolean,
+      default: false,
       required: true,
     },
     type: {
       type: String,
-      enum: [tokenTypes.REFRESH, tokenTypes.RESET_PASSWORD, tokenTypes.VERIFY_EMAIL],
+      enum: ['Monthly', 'Annually', 'Quarterly','Half Year'],
       required: true,
     },
-    expires: {
+    banner:{
+      type: String,
+      default: '',
+      required: true,
+    },
+    description: {
+      type: String,
+      default: '',
+      required: true,
+    },
+    startDate: {
       type: Date,
       required: true,
     },
-    blacklisted: {
-      type: Boolean,
-      default: false,
+    endDate: {
+      type: Date,
+      required: true,
     },
   },
   {

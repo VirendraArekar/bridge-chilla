@@ -7,6 +7,8 @@ const {
   deleteDocumentAndGet,
   deleteAllDocumentAndGet,
 } = require('../../services/db.service');
+const { FcmSetting } = require('../../models');
+const { apiSuccess, apiError } = require('../../utils/helper');
 const Collection = 'FcmSetting';
 
 // create country
@@ -19,11 +21,16 @@ const getFcmSettings = catchAsync(async (req, res) => {
 });
 
 const getFcmSetting = catchAsync(async (req, res) => {
-  await singleRecordAndGet(Collection, req.params.cityId, res);
+  const role = await FcmSetting.findById(req.params.fcmSettingId);
+  if (role) {
+    apiSuccess(res, role, 'Offer retrieve successfully');
+  } else {
+    apiError(res, { error: 'No record' }, 'No record found');
+  }
 });
 
 const updateFcmSetting = catchAsync(async (req, res) => {
-  await updateDocumentAndGet(Collection, req.params.cityId, req.body, res);
+  await updateDocumentAndGet(Collection, req.params.fcmSettingId, req.body, res);
 });
 
 const deleteFcmSetting = catchAsync(async (req, res) => {

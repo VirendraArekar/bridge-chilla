@@ -3,15 +3,15 @@ const { objectId } = require('./custom.validation');
 
 const createSupport = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    title: Joi.string().required(),
+    description: Joi.string().required(),
   }),
 };
 
 const getSupports = {
   query: Joi.object().keys({
-    name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    title: Joi.string(),
+    description: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,8 +30,8 @@ const updateSupport = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      title: Joi.string(),
+    description: Joi.string(),
     })
     .min(1),
 };

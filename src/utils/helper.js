@@ -40,8 +40,14 @@ const dbErrorLog = async (key, priority = 'Low', request, error) => {
   });
 };
 
+const getDomainAddress = (req) => {
+  return req.protocol + "://" + req.headers.host;
+}
+
 module.exports = {
   apiSuccess,
   apiError,
   dbErrorLog,
+  getDomainAddress,
 };
+

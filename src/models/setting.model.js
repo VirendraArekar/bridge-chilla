@@ -3,11 +3,6 @@ const { toJSON, paginate } = require('./plugins');
 
 const settingSchema = mongoose.Schema(
   {
-    userId: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: 'User',
-      required: true,
-    },
     appName: {
       type: String,
       default: 'Bride Chilla',
@@ -16,21 +11,21 @@ const settingSchema = mongoose.Schema(
     fcmSettingId: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'FcmSetting',
-      required: true,
+      required: false,
     },
     emailSettingId: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'EmailSetting',
-      required: true,
+      required: false,
     },
     currency: {
       type: String,
-      required: true,
+      required: false,
     },
     paymentId: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'PaymentSetting',
-      required: true,
+      required: false,
     },
     appLogo: {
       type: String,

@@ -158,7 +158,6 @@ const createRecordAndGet = async (Model, data, res, output = false) => {
   const record = new Model(data);
   const createRecord = await record.save(async (err, result) => {
     if (err) {
-      console.log('DATA -----------------------------', result)
       dbErrorLog(`Create${keyword}`, 'Medium', data, err);
       apiError(res, err, 'Unable to create record');
     } else {

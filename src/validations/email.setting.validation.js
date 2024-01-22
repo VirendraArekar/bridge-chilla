@@ -3,15 +3,21 @@ const { objectId } = require('./custom.validation');
 
 const createEmailSetting = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    smtpHost: Joi.string().required(),
+    smtpPort: Joi.string().required(),
+    smtpUsername: Joi.string().required(),
+    smtpPassword: Joi.string().required(),
+    emailFrom: Joi.string().required(),
   }),
 };
 
 const getEmailSettings = {
   query: Joi.object().keys({
-    name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    smtpHost: Joi.string(),
+    smtpPort: Joi.string(),
+    smtpUsername: Joi.string(),
+    smtpPassword: Joi.string(),
+    emailFrom: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,8 +36,11 @@ const updateEmailSetting = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      smtpHost: Joi.string(),
+      smtpPort: Joi.string(),
+      smtpUsername: Joi.string(),
+      smtpPassword: Joi.string(),
+      emailFrom: Joi.string(),
     })
     .min(1),
 };

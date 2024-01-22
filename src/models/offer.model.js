@@ -3,11 +3,20 @@ const { toJSON, paginate } = require('./plugins');
 
 const offerSchema = mongoose.Schema(
   {
+    user: {
+      ref : "User",
+      type: mongoose.SchemaTypes.ObjectId,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
     },
-    image: {
+    subTitle: {
+      type: String,
+      required: true,
+    },
+    offerImage: {
       type: String,
       required: true,
     },
@@ -31,11 +40,17 @@ const offerSchema = mongoose.Schema(
       default: false,
       required: true,
     },
-    userId: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: 'User',
+    startDate: {
+      type: Date,
+      // default: false,
       required: true,
     },
+    endDate: {
+      type: Date,
+      // default: false,
+      required: true,
+    },
+
   },
   {
     timestamps: true,

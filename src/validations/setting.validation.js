@@ -3,15 +3,13 @@ const { objectId } = require('./custom.validation');
 
 const createSetting = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
-    stateId: Joi.string().required().custom(objectId),
+    appName: Joi.string().required(),
   }),
 };
 
 const getSettings = {
   query: Joi.object().keys({
-    name: Joi.string(),
-    stateId: Joi.string().custom(objectId),
+    appName: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
@@ -30,8 +28,7 @@ const updateSetting = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
-      stateId: Joi.string().custom(objectId),
+      appName: Joi.string(),
     })
     .min(1),
 };

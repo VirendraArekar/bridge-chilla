@@ -60,7 +60,7 @@ const defaultRoutes = [
     route: commentRoute,
   },
   {
-    path: '/user/email-settings',
+    path: '/email-setting',
     route: emailSettingRoute,
   },
   {
@@ -68,7 +68,7 @@ const defaultRoutes = [
     route: eventRoute,
   },
   {
-    path: '/user/fcm-settings',
+    path: '/fcm-setting',
     route: fcmSettingRoute,
   },
   {
@@ -92,11 +92,11 @@ const defaultRoutes = [
     route: offerRoute,
   },
   {
-    path: '/user/pages',
+    path: '/pages',
     route: pageRoute,
   },
   {
-    path: '/user/payment-settings',
+    path: '/payment-setting',
     route: paymentSettingRoute,
   },
   {
@@ -138,6 +138,10 @@ const defaultRoutes = [
   {
     path: '/user/wallets',
     route: walletRoute,
+  },
+  {
+    path: '/settings',
+    route: settingRoute,
   },
 ];
 
